@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), EventsCalendar.Callback {
                 .setToday(today)
                 .setMonthRange(today, end)
                 .setWeekStartDay(Calendar.SUNDAY, false)
-                .setCurrentSelectedDate(today)
+                .setIsBoldTextOnSelectionEnabled(true)
                 .setDatesTypeface(FontsManager.getTypeface(FontsManager.OPENSANS_REGULAR, this))
                 .setMonthTitleTypeface(FontsManager.getTypeface(FontsManager.OPENSANS_SEMIBOLD, this))
                 .setWeekHeaderTypeface(FontsManager.getTypeface(FontsManager.OPENSANS_SEMIBOLD, this))
@@ -51,6 +51,9 @@ class MainActivity : AppCompatActivity(), EventsCalendar.Callback {
         c.add(Calendar.DAY_OF_MONTH, 4)
         eventsCalendar.addEvent(c)
         c.add(Calendar.DAY_OF_MONTH, 7)
+        eventsCalendar.addEvent(c)
+        c.add(Calendar.MONTH, 1)
+        c[Calendar.DAY_OF_MONTH] = 1
         eventsCalendar.addEvent(c)
 
         selected.setOnClickListener {
